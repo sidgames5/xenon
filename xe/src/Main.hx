@@ -2,7 +2,7 @@ class Main {
     static function main() {
         final args = Sys.args();
         final options = new Array<String>();
-        var operation = "";
+        final operations = new Array<String>();
         var module = "";
         final params = new Array<String>();
 
@@ -14,7 +14,30 @@ class Main {
                         return;
                 }
             }
-            else if (arg.startsWith("-")) {}
+            else if (arg.startsWith("-")) {
+                var opt = arg.substr(1).split("");
+                for (o in opt) {
+                    switch (o) {
+                        case "P":
+                            module = "xepm";
+                        case "C":
+                            module = "xepc";
+                        default:
+                            if (module == "P") {
+                                switch (o) {
+                                    case "i":
+                                        operations.push("install");
+                                    case "r":
+                                        operations.push("remove");
+                                    case "s":
+                                        operations.push("sync");
+                                    case "u":
+                                        operations.push("upgrade");
+                                }
+                            }
+                    }
+                }
+            }
             else {}
         }
     }
