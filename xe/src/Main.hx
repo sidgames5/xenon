@@ -34,11 +34,20 @@ class Main {
                                     case "u":
                                         operations.push("upgrade");
                                 }
+                            } else if (module == "C") {
+                                switch (o) {
+                                    case "e":
+                                        operations.push("export");
+                                    case "l":
+                                        operations.push("load");
+                                }
                             }
                     }
                 }
             }
-            else {}
+            else {
+                params.push(arg);
+            }
         }
     }
 }
