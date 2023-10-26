@@ -8,6 +8,7 @@ build_xe () {
 
 build_modules () {
     haxe modules/xepm/build.hxml
+    haxe modules/makepkg/build.hxml
 }
 
 collect_xe () {
@@ -16,4 +17,5 @@ collect_xe () {
 
 collect_modules () {
     cp modules/xepm/bin/Main "$build/modules/xepm"
+    cp modules/makepkg/bin/Main "$build/modules/makepkg"
 }
