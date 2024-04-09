@@ -1,0 +1,4 @@
+--class-path modules/xepm
+--main Main
+-dce full
+--cpp bin/modules/xepm

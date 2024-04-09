@@ -1,0 +1,4 @@
+--class-path xe
+--main Main
+-dce full
+--cpp bin/xe

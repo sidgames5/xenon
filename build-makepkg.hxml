@@ -1,0 +1,4 @@
+--class-path modules/makepkg
+--main Main
+-dce full
+--cpp bin/modules/makepkg
