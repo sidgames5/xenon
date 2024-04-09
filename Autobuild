@@ -1,21 +1,3 @@
-arch=("x86_64")
-os=("linux")
-components=("xe" "modules")
-
-build_xe () {
-    haxe xe/build.hxml
-}
-
-build_modules () {
-    haxe modules/xepm/build.hxml
-    haxe modules/makepkg/build.hxml
-}
-
-collect_xe () {
-    cp xe/bin/Main "$build/xe"
-}
-
-collect_modules () {
-    cp modules/xepm/bin/Main "$build/modules/xepm"
-    cp modules/makepkg/bin/Main "$build/modules/makepkg"
-}
+haxe build-xe.hxml
+haxe build-xepm.hxml
+haxe build-makepkg.hxml
