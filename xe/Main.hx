@@ -12,54 +12,13 @@ class Main {
 		var module = "";
 		final params = new Array<String>();
 
-		var la = null;
-		for (arg in args) {
-			if (la != null) {
-				switch (la) {
-					case "root":
-						options.set("root", "arg");
-				}
-			} else if (arg.startsWith("--")) {
-				switch (arg.substr(2)) {
-					case "root":
-						la = "root";
-					default:
-						Sys.println('Unknown option: $arg');
-						return;
-				}
-			} else if (arg.startsWith("-")) {
-				var opt = arg.substr(1).split("");
-				for (o in opt) {
-					switch (o) {
-						case "P":
-							module = "xepm";
-						case "C":
-							module = "xepc";
-						default:
-							if (module == "P") {
-								switch (o) {
-									case "i":
-										operations.push("install");
-									case "r":
-										operations.push("remove");
-									case "s":
-										operations.push("sync");
-									case "u":
-										operations.push("upgrade");
-								}
-							} else if (module == "C") {
-								switch (o) {
-									case "e":
-										operations.push("export");
-									case "l":
-										operations.push("load");
-								}
-							}
-					}
-				}
-			} else {
-				params.push(arg);
-			}
+		switch (args[0]) {
+			case "install", "remove", "sync", "upgrade", "search", "info", "list":
+				module = "xepm";
+				operations.push(args[0]);
+				var p = args.copy();
+				p.shift();
+				params.concat(p);
 		}
 
 		switch (module) {
@@ -74,9 +33,9 @@ class Main {
 						case "sync":
 							command += "sync";
 						case "upgrade":
-							comamnd += "upgrade " + params.join(" ");
+							command += "upgrade " + params.join(" ");
 						case "search":
-							command += "search " + params.join(" ");	
+							command += "search " + params.join(" ");
 						case "info":
 							command += "info " + params.join(" ");
 						case "list":

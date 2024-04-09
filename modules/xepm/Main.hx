@@ -1,13 +1,19 @@
 class Main {
 	static function main() {
 		final args = Sys.args();
-		if (args.length < 2) {
+		if (args.length < 1) {
 			Sys.println("Usage: xepm operation packages");
 			return;
 		}
 
 		final packages = args;
-		packages.shift();
+		if (packages.length > 0) {
+			packages.shift();
+		} else {
+			for (p in packages) {
+				packages.pop();
+			}
+		}
 
 		switch (args[0]) {
 			case "install":
