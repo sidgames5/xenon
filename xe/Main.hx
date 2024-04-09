@@ -3,7 +3,7 @@ import sys.io.Process;
 using StringTools;
 
 class Main {
-	public static final modpath = "/usr/lib/xenon";
+	public static final modpath = "/usr/lib/xenon/modules";
 
 	static function main() {
 		final args = Sys.args();
@@ -69,9 +69,22 @@ class Main {
 					switch (op) {
 						case "install":
 							command += "install " + params.join(" ");
+						case "remove":
+							command += "remove " + params.join(" ");
+						case "sync":
+							command += "sync";
+						case "upgrade":
+							comamnd += "upgrade " + params.join(" ");
+						case "search":
+							command += "search " + params.join(" ");	
+						case "info":
+							command += "info " + params.join(" ");
+						case "list":
+							command += "list";
 					}
 				}
 				Sys.command(command);
+
 			default:
 				Sys.println("Unsupported module");
 				return;
