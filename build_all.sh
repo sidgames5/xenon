@@ -2,4 +2,4 @@
 
 haxe build-xe.hxml
 haxe build-xepm.hxml
-haxe build-makepkg.hxml
+haxe build-xemk.hxml
