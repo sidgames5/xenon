@@ -1,0 +1,4 @@
+--class-path modules/xeconf
+--main Main
+-dce full
+--cpp bin/modules/xeconf
