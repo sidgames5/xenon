@@ -19,6 +19,13 @@ class Main {
 				var p = args.copy();
 				p.shift();
 				params.concat(p);
+			case "config":
+				module = "xeconf";
+				operations.push(args[1]);
+				var p = args.copy();
+				p.shift();
+				p.shift();
+				params.concat(p);
 		}
 
 		switch (module) {
